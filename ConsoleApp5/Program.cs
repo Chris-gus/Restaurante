@@ -7,6 +7,7 @@
         {
             try
             {
+                string op;
                 List<Pedido> pedidos = new List<Pedido>();
                 Produto hamburguer = new Produto();
                 hamburguer.Nome = "Hambúrguer";
@@ -17,20 +18,41 @@
                 Produto refrigerante = new Produto();
                 refrigerante.Nome = "Refrigerante";
                 refrigerante.Preco = 6.50;
+                do
+                {
+                 
+                    Pedido pedido = new Pedido();
+                    pedido.Produtos = new List<Produto>();
+                    Console.WriteLine("Quais produtos que você deseja no seu pedido?");
+                    Console.WriteLine("1-Hambúrguer\n2-Batata-Frita\n3-Refrigerante");
+                    int produto = int.Parse(Console.ReadLine());
 
-                Pedido pedido1 = new Pedido();
-                pedido1.Numero = 1;
-                pedido1.Produtos = new List<Produto>();
-                pedido1.Produtos.Add(hamburguer);
-                pedido1.Produtos.Add(batataFrita);
-                pedidos.Add(pedido1);
+                    
 
-                Pedido pedido2 = new Pedido();
-                pedido2.Numero = 2;
-                pedido2.Produtos = new List<Produto>();
-                pedido2.Produtos.Add(refrigerante);
-                pedido2.Produtos.Add(hamburguer);
-                pedidos.Add(pedido2);
+                    switch (produto)
+                    {
+                        case 1:
+                            pedido.Produtos.Add(hamburguer);
+                        break;
+                        case 2:
+                            pedido.Produtos.Add(batataFrita); 
+                        break;
+                        case 3:
+                            pedido.Produtos.Add(refrigerante);
+                        break;
+                        default:
+                            throw new Exception("Insira um pedido válido.");
+                    
+                    }
+
+                    pedidos.Add(pedido);
+                    pedido.Numero = pedidos.Count();
+
+
+                    Console.WriteLine("Insira 0 para parar ou qualquer valor para continuar");
+                    op = Console.ReadLine();
+                } while (op != "0");
+               
 
                 foreach (Pedido pedido in pedidos)
                 {
