@@ -22,7 +22,6 @@
                 {
                  
                     Pedido pedido = new Pedido();
-                    pedido.Produtos = new List<Produto>();
                     
 
 
