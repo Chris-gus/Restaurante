@@ -9,12 +9,15 @@
             {
                 string op;
                 List<Pedido> pedidos = new List<Pedido>();
+
                 Produto hamburguer = new Produto();
                 hamburguer.Nome = "Hambúrguer";
                 hamburguer.Preco = 25.00;
+
                 Produto batataFrita = new Produto();
                 batataFrita.Nome = "Batata-Frita";
                 batataFrita.Preco = 8.00;
+
                 Produto refrigerante = new Produto();
                 refrigerante.Nome = "Refrigerante";
                 refrigerante.Preco = 6.50;
@@ -27,9 +30,8 @@
 
                     string op2 = "";
                     while(op2!= "0"){
-                        Console.WriteLine("Quais produtos que você deseja no seu pedido?");
-                        Console.WriteLine("1-Hambúrguer\n2-Batata-Frita\n3-Refrigerante");
-                        int produto = int.Parse(Console.ReadLine());
+                    int produto = FazerPedido();
+                        
                         switch (produto)
                         {
                             case 1:
@@ -67,8 +69,14 @@
             {
                 Console.WriteLine(ex.Message);
             }
+            
 
-
+        }
+        static int FazerPedido() 
+        {
+            Console.WriteLine("Quais produtos que você deseja no seu pedido?");
+            Console.WriteLine("1-Hambúrguer\n2-Batata-Frita\n3-Refrigerante");
+            return int.Parse(Console.ReadLine());
         }
 
     }
